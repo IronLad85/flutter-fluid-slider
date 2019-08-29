@@ -1,14 +1,48 @@
-# fluid_slider
+# Flutter - Fluid Slider
 
-A new Flutter package project.
+### If this project has helped you out, please support us with a star. :star2:
+
+## Preview
+
+![Alt Text](preview.gif)
+
+
+<style type="text/css">
+    img{ border:1px solid black }
+</style>
 
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+```yamlgit
+dependencies:
+	...
+	fluid_slider: 1.0.0
+```
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Usage Example
+
+Adding the widget
+
+```dart
+import 'package:fluid_slider/fluid_slider.dart';
+
+FluidSlider(
+  min: 0,
+  max: 100,
+  sliderColor: Colors.indigo,
+  textColor: Colors.white,
+  onValue: (value) => {},
+  onSlide: (value) => {},
+)
+```
+
+## Slider Properties
+
+| Property            | Type          | Required | Default Value |
+| ------------------- | ------------- | -------- | ------------- |
+| min                 | int           | Yes      | --            |
+| max                 | int           | Yes      | --            |
+| sliderColor         | Color         | No       | Colors.indigo |
+| textColor           | Color         | No       | Colors.indigo |
+| onValue             | Function      | Yes      | --            |
+| onSlide             | Function      | No       | --            |

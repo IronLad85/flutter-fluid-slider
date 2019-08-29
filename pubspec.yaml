@@ -2,7 +2,7 @@ name: fluid_slider
 description: A Flutter UI for Fluid Slider inspired by native fluid slider of android.
 version: 1.0.0
 author: Siddharth V <siddharthsakre@gmail.com>
-homepage:
+homepage: https://github.com/IronLad85/flutter-fluid-slider
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

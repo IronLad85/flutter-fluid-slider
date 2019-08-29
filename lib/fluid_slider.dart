@@ -7,7 +7,6 @@ class FluidSlider extends StatefulWidget {
   final max;
   final onValue;
   final onSlide;
-  final int value;
   final Color sliderColor;
   final Color textColor;
 
@@ -18,12 +17,11 @@ class FluidSlider extends StatefulWidget {
       @required this.onValue,
       this.onSlide,
       this.textColor,
-      this.value,
       this.sliderColor})
       : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => FluidSliderState(this.textColor);
+  State<StatefulWidget> createState() => FluidSliderState(this.textColor, this.min);
 }
 
 class FluidSliderState extends State<FluidSlider> {
@@ -31,13 +29,14 @@ class FluidSliderState extends State<FluidSlider> {
   double indicatorLeft = 0;
   double sliderBarWidth = 0;
   bool isBubbleActive = false;
+  int sliderValue = 0;
+  int min = 0;
   TextStyle textStyle;
   final Color textColor;
 
-  int sliderValue = 0;
-
-  FluidSliderState(this.textColor) {
+  FluidSliderState(this.textColor, this.min) {
     textStyle = TextStyle(color: textColor ?? Colors.white, fontWeight: FontWeight.bold, fontSize: 13);
+    sliderValue = (0 + min);
   }
 
   @override
@@ -64,7 +63,7 @@ class FluidSliderState extends State<FluidSlider> {
   }
 
   int getSliderValue(double position) {
-    return (((indicatorLeft + position) / (sliderBarWidth - 36)) * widget.max).roundToDouble().toInt();
+    return (((indicatorLeft + position) / (sliderBarWidth - 36)) * (widget.max - widget.min)).roundToDouble().toInt();
   }
 
   void onPanUpdate(DragUpdateDetails details) {
@@ -74,7 +73,7 @@ class FluidSliderState extends State<FluidSlider> {
         widget.onSlide(sliderValue);
       }
       setState(() {
-        sliderValue = getSliderValue(position);
+        sliderValue = getSliderValue(position) + widget.min;
         indicatorLeft += position;
       });
     }
