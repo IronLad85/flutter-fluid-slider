@@ -3,13 +3,7 @@
 ### If this project has helped you out, please support us with a star. :star2:
 
 ## Preview
-
 ![Alt Text](preview.gif)
-
-
-<style type="text/css">
-    img{ border:1px solid black }
-</style>
 
 ## Getting Started
 
